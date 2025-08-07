@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #fff;
+  border-bottom: 4px solid #d6d600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+.categories {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.categories li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.categories li:hover {
+  color: #d6d600;
+}

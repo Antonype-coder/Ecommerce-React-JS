@@ -7,8 +7,8 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     getProducts()
-      .then((res) => setItems(res))
-      .catch((err) => console.error("Error al cargar productos", err));
+      .then(setItems)
+      .catch((err) => console.error("Error loading products:", err));
   }, []);
 
   return (

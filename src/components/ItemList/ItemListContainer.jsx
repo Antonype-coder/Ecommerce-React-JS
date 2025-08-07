@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../../data/products";
+import { useProducts } from "../../hooks/useProducts";
+import withLoader from "../../hoc/withLoader";
 import ItemList from "./ItemList";
 
-const ItemListContainer = ({ greeting }) => {
-  const [items, setItems] = useState([]);
+const ItemListWithLoader = withLoader(ItemList);
 
-  useEffect(() => {
-    getProducts()
-      .then(setItems)
-      .catch((err) => console.error("Error loading products:", err));
-  }, []);
+const ItemListContainer = () => {
+  const { products, loading } = useProducts();
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2>{greeting}</h2>
-      <ItemList items={items} />
-    </div>
-  );
+  return <ItemListWithLoader items={products} loading={loading} />;
 };
 
 export default ItemListContainer;

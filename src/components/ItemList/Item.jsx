@@ -1,19 +1,20 @@
-const Item = ({ name, price, img, description }) => (
-  <div style={{
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    padding: "16px",
-    width: "250px"
-  }}>
-    <img
-      src={img}
-      alt={name}
-      style={{ width: "100%", borderRadius: "10px" }}
-    />
-    <h3>{name}</h3>
-    <p>{description}</p>
-    <strong>${price.toLocaleString("es-CO")}</strong>
-  </div>
-);
+import { Link } from 'react-router-dom';
+
+const Item = ({ product }) => {
+  if (!product || !product.id || !product.name) {
+    return <div>Error: producto inválido</div>;
+  }
+
+  return (
+    <div className="item-card">
+      <img src={product.image} alt={product.name} width={150} />
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <Link to={`/detail/${product.id}`} className="info-button">
+        Ver más
+      </Link>
+    </div>
+  );
+};
 
 export default Item;

@@ -9,3 +9,23 @@
   padding: 20px;
   background-color: #f5f5f5;
 }
+
+.item-detail {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.info-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.info-button:hover {
+  background-color: #444;
+}
+

@@ -1,7 +1,7 @@
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemList/ItemListContainer'
-import EjemploContador from './components/Contador/Contador'
+import EjemploContador from './components/StockCounter/StockCounter'
 
 function App() {
   return (

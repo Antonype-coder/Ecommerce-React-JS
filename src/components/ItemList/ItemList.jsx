@@ -1,13 +1,22 @@
-import Item from "./Item";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../data/products";
+import ItemList from "./ItemList";
 
-const ItemList = ({ productos }) => {
+const ItemListContainer = ({ greeting }) => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getProducts()
+      .then((res) => setItems(res))
+      .catch((err) => console.error("Error al cargar productos", err));
+  }, []);
+
   return (
-    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", marginTop: "20px" }}>
-      {productos.map((prod) => (
-        <Item key={prod.id} {...prod} />
-      ))}
+    <div style={{ padding: "20px" }}>
+      <h2>{greeting}</h2>
+      <ItemList items={items} />
     </div>
   );
 };
 
-export default ItemList;
+export default ItemListContainer;

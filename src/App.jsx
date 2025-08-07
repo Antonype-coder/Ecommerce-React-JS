@@ -1,16 +1,14 @@
-import './App.css'
-import NavBar from './components/NavBar/NavBar'
-import ItemListContainer from './components/ItemList/ItemListContainer'
-import EjemploContador from './components/StockCounter/StockCounter'
+import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemList/ItemListContainer';
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <NavBar />
-      <ItemListContainer saludo="¡Bienvenidos a mi tienda!" />
-      <EjemploContador />
-    </div>
-  )
+      <ItemListContainer greeting="Welcome to Apple Colombia Store" />
+    </>
+  );
 }
 
-export default App
+export default App;

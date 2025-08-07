@@ -1,29 +1,21 @@
 import { useEffect, useState } from "react";
+import { getProducts } from "../../data/products";
 import ItemList from "./ItemList";
-import productos from "../../data/products";
 
-const ItemListContainer = ({ saludo }) => {
+const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const pedirProductos = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(productos);
-        }, 1000);
-      });
-    };
-
-    pedirProductos().then((respuesta) => {
-      setItems(respuesta);
-    });
+    getProducts()
+      .then((res) => setItems(res))
+      .catch((err) => console.error("Error al cargar productos", err));
   }, []);
 
   return (
-    <section>
-      <h2>{saludo}</h2>
-      <ItemList productos={items} />
-    </section>
+    <div style={{ padding: "20px" }}>
+      <h2>{greeting}</h2>
+      <ItemList items={items} />
+    </div>
   );
 };
 
